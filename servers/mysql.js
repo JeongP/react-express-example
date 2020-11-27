@@ -1,16 +1,11 @@
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
+var mysql = require('mysql');
+
+const conn = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '1111',
   database : 'test'
 });
- 
-connection.connect();
- 
-connection.query('SELECT * from tableTest', function (error, results, fields) {
-  if (error) throw error;
-  console.log(results);
-});
- 
-connection.end();
+
+
+module.exports = conn;

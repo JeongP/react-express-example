@@ -3,6 +3,14 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const port =process.env.PORT || 3001;
+const conn = require('./mysql');
+
+
+var sql = 'select * from tabletest';
+conn.query(sql, (err, results, fields) => {
+    if (err) console.log(err);
+    console.log(results);
+})
 
 app.use(cors());
 app.use(bodyParser.json());
